@@ -8,36 +8,37 @@ The Azure CLI has limitations with Microsoft Fabric and Copilot Studio. These se
 
 ## 1. Microsoft Fabric Capacity Setup
 
-### Option A: Create Fabric Capacity (Paid - You chose this)
+### Status: ✅ DEPLOYED (January 20, 2026)
 
-**Location**: Azure Portal  
-**Estimated Cost**: ~$770/month for F2, $8,671/month for F64
+**Capacity deployed**: fabricalbertadev in Canada Central (F2)
 
-#### Steps:
+**⚠️ CRITICAL**: No automatic pause available. Must manually pause/resume to save costs.
 
-1. **Navigate to Azure Portal**
-   - Go to: https://portal.azure.com
-   - Search for "Microsoft Fabric"
+### Daily Cost Management
 
-2. **Create Fabric Capacity**
-   ```
-   Resource Group: rg-alberta-platform-data-dev
-   Capacity Name: fabric-alberta-dev
-   Region: Canada Central
-   SKU: F2 (smallest, 2 CUs) OR F64 (recommended for demos, 64 CUs)
-   Admin: Your email address
-   Tags:
-     - project: alberta-platform
-     - environment: dev
-     - workload: data
-   ```
+**Check Status**:
+```bash
+cd ~/Desktop/FoundryPurview/infrastructure/bicep/fabric
+./status-fabric.sh
+```
 
-3. **Configure Auto-Pause** (to save costs)
-   - After creation, go to capacity settings
-   - Enable auto-pause for off-hours
-   - Schedule: Pause at 8:00 PM, Resume at 6:00 AM weekdays
+**Pause When Done** (stops billing):
+```bash
+./pause-fabric.sh
+```
 
-4. **Create Fabric Workspaces**
+**Resume When Needed** (starts billing):
+```bash
+./resume-fabric.sh
+```
+
+**Cost**: $988/month (24/7) or ~$290/month (work hours only with manual pause/resume)
+
+💡 **Set reminders** to pause at 6pm and resume at 9am to save ~70%!
+
+See `infrastructure/bicep/fabric/README.md` for complete management guide.
+
+### Next: Create Workspaces
    
    Navigate to: https://app.fabric.microsoft.com
    
