@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "fabricalbertadev"
+        },
+        "location": {
+            "value": "canadacentral"
+        },
+        "sku": {
+            "value": "F2"
+        },
+        "admin": {
+            "value": "admin@MngEnvMCAP516709.onmicrosoft.com"
+        },
+        "realmId": {
+            "value": ""
+        },
+        "tagValues": {
+            "value": {
+                "project": "alberta-platform",
+                "environment": "dev",
+                "owner": "jcrossman@microsoft.com",
+                "createdBy": "arm-template",
+                "createdDate": "2026-01-20",
+                "workload": "data",
+                "autoPause": "enabled"
+            }
+        }
+    }
+}
